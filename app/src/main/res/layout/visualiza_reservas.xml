@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#97E1DD">
+
+    <include
+        android:id="@+id/includeToolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:orientation="vertical"
+        android:textAlignment="textEnd"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="88dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ainda não há reservas a serem visualizadas.." />
+
+        <LinearLayout
+            android:layout_width="78dp"
+            android:layout_height="79dp"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/progressBarRv"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#9CE6B5"
+                tools:visibility="invisible" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
