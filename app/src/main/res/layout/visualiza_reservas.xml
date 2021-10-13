@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMenuLateral"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#97E1DD">
+    android:background="#97E1DD"
+    android:fitsSystemWindows="true">
 
-    <include
-        android:id="@+id/includeToolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="0dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="93dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:textAlignment="textEnd"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="88dp">
+        android:textAlignment="textEnd">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <include layout="@layout/toolbar" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Ainda não há reservas a serem visualizadas.." />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ainda não há reservas a serem visualizadas.." />
+            android:id="@+id/recyclerOrders"
+            android:scrollbarStyle="outsideOverlay"
+            android:cacheColorHint="@android:color/transparent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="vertical">
 
-        <LinearLayout
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <FrameLayout
             android:layout_width="78dp"
-            android:layout_height="79dp"
-            android:orientation="horizontal">
+            android:layout_height="79dp">
 
             <ProgressBar
                 android:id="@+id/progressBarRv"
@@ -40,9 +48,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#9CE6B5"
-                tools:visibility="invisible" />
-        </LinearLayout>
+                android:visibility="invisible" />
+        </FrameLayout>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/menu_lateral"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/menu_lateral_cabecalho"
+        app:menu="@menu/menu_lateral">
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

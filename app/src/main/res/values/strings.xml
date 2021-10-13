@@ -3,5 +3,6 @@
     <string name="action_signout">Deslogar</string>
     <string name="action_updater">Atualizar</string>
     <string name="action_config">Config</string>
-
+    <string name='navigation_drawer_open'>Abrir</string>
+    <string name='navigation_drawer_close'>Fechar</string>
 </resources>

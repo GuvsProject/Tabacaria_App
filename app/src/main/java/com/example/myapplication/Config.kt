@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
-class Config : AppCompatActivity() {
+class Config : NavigationDrawerActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.config)
-
+        configuraMenuLateral()
     }
 }
 
