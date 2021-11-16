@@ -3,13 +3,13 @@ package com.example.myapplication
 import androidx.room.Room.*
 
 object DatabaseManager {
-    private var dbInstance: myappDatabase
+    private var dbInstance: MyappDatabase
 
     init {
-        val context = myappAplication.getInstance().applicationContext
+        val context = MyappAplication.getInstance().applicationContext
         dbInstance = databaseBuilder(
             context,
-            myappDatabase::class.java,
+            MyappDatabase::class.java,
             "myapp.sqlite"
         ).build()
     }
