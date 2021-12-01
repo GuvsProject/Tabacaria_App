@@ -34,6 +34,7 @@ class Login : AppCompatActivity() {
 
             if (valida) {
                 var intent = Intent(this, VisualizaReservas::class.java)
+//                enviaNotificacao_login(this.orders.get(0))
                 startActivity(intent)
 
             }
@@ -58,3 +59,13 @@ fun checkUsuario(nome:String ,senha:String): Boolean {
     }
     return retorno
 }
+
+
+//fun enviaNotificacao_login() {
+//    // Intent para abrir tela quando clicar na notificação
+//    val intent = Intent(this, OrderActivity::class.java)
+//    // parâmetros extras
+//    intent.putExtra("Solicitacao", "tal")
+//    // Disparar notificação
+//    NotificationUtil.create(this, 1, intent, "MyApp Tabacaria", "Você tem novas solicitacoes no app")
+//}

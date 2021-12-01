@@ -32,6 +32,11 @@ open class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavi
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             }
+            R.id.nav_maps -> {
+                Toast.makeText(this, "Direcionando ao Mapa...", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MapasActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         // fecha menu depois de tratar o evento

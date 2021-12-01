@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.visualiza_reservas.*
 
-
 class VisualizaReservas : NavigationDrawerActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.visualiza_reservas)
         setSupportActionBar(findViewById(R.id.vrtoolbar))
+        supportActionBar?.title = "Solicitações"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         configuraMenuLateral()
         recyclerOrders?.layoutManager = LinearLayoutManager(this)
@@ -70,8 +71,20 @@ class VisualizaReservas : NavigationDrawerActivity() {
     fun taskOrders() {
         this.orders = OrdersService.getOrders(this)
         recyclerOrders?.adapter = OrderAdapter(orders) {onclickOrder(it)}
+        //Envia notificacao
+//        enviaNotificacao(this.orders.get(0))
+
     }
     val contexto = this
+
+    fun enviaNotificacao(order: Order) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, OrderActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("Solicitacao", order)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "MyApp Tabacaria", "Você tem novas solicitacoes na ${order.id}")
+    }
 }
 
 
